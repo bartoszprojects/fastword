@@ -1,0 +1,12 @@
+[
+  {"english_word":  "dog", "polish_word":  "pies", "time": 11500, "other":  "other"},
+  {"english_word":  "cat", "polish_word":  "kot", "time": 4000, "other":  "other"},
+  {"english_word":  "sea", "polish_word":  "morze", "time": 4000, "other":  "other"},
+  {"english_word":  "forest", "polish_word":  "las", "time": 4000, "other":  "other"},
+  {"english_word":  "home", "polish_word":  "dom", "time": 4000, "other":  "other"},
+  {"english_word":  "red", "polish_word":  "czerwony", "time": 4000, "other":  "other"},
+  {"english_word":  "green", "polish_word":  "zielony", "time": 4000, "other":  "other"},
+  {"english_word":  "black", "polish_word":  "czarny", "time": 4000, "other":  "other"},
+  {"english_word":  "window", "polish_word":  "okno", "time": 4000, "other":  "other"},
+  {"english_word":  "screen", "polish_word":  "ekran", "time": 4000, "other":  "other"}
+]

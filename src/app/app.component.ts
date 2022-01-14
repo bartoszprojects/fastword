@@ -16,6 +16,8 @@ export class AppComponent implements OnInit{
   small_interval: any;
   how_long: number = 5000;
   cycle_time_left: any;
+  current_word : string = '';
+  words : Array<any> = ['dog', 'cat', 'forest']
 
   my_variable: any;
   foo = 'Hello';
@@ -42,8 +44,6 @@ export class AppComponent implements OnInit{
       console.log(this.cycle_time_left)
       if (this.cycle_time_left == 0) {
         console.log('---------------------------------')
-
-
       }
     })
   }
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit{
   stopSmallInterval() {
     this.small_interval.unsubscribe()
     this.main_interval.unsubscribe()
-    console.log(moment.duration(this.cycle_time_left).asSeconds())
+    console.log('it takes: ', moment.duration(this.cycle_time_left).asSeconds())
 
   }
 
@@ -59,7 +59,9 @@ export class AppComponent implements OnInit{
     console.log(e.target.value);
   }
   modelChangeFn(value: any) {
-    console.log(value);
+    if (value === 'dog') {
+      this.stopSmallInterval()
+    }
   }
 
 }

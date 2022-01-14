@@ -5,15 +5,17 @@
   </div>
   <div class="bl-word-panel">
     <div class="bl-word-panel-label bl-display-flex bl-display-flex-jcc">
-      <p class="bl-text-font-size-big">dog</p>
+      <p class="bl-text-font-size-big">{{ current_word }}</p>
     </div>
     <div class="bl-word-panel-word bl-display-flex bl-display-flex-jcc">
-      <input class="bl-input bl-text-font-size-big bl-text-align-center" [ngModel]="current_word" (ngModelChange)="modelChangeFn($event)">
+      <input class="bl-input bl-text-font-size-big bl-text-align-center" placeholder="{{current_word}}"
+             [(ngModel)]="word_to_translate" #ctrl="ngModel" (ngModelChange)="modelChangeFn($event)">
     </div>
     <div class="bl-word-panel-info bl-display-flex bl-display-flex-jcc">
-      <p>info</p>
+      <p>points: {{ points }} | time left: {{ cycle_time_left}}</p>
     </div>
   </div>
-
-  <button (click)="stopSmallInterval()">stop small interval</button>
+  <button (click)="startEverything()">start everything!</button>
+  <button (click)="stopIntervals()">stop small interval</button>
 </div>
+<button (click)="cleanx()">clean</button>

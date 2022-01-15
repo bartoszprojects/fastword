@@ -14,21 +14,25 @@ import * as moment from "moment";
 export class AppComponent implements OnInit{
   main_interval : any;
   small_interval: any;
-  how_long: number = 5000;
+  how_long: number = 9000;
   cycle_time_left: any;
   current_word : string = '';
   word_to_translate: string = '';
-  words : Array<any> = ['dog', 'cat', 'red', 'lala']
+  user_input: string = '';
+  words : Array<any> =  [];
   points : number = 0;
   global_word_index: number = 0;
-  time_left : any;
-
+  passed_words : Array<any> = []
+  title: string = '';
 
   constructor(private service: MainService) {
   }
 
   ngOnInit(): void {
-    this.service.getDataFromJsonFile().subscribe(res => console.log(res))
+    this.service.getDataFromJsonFile().subscribe(res => {
+      this.words = res
+      console.log('a',this.words)
+    })
 
 
   }
@@ -42,7 +46,8 @@ export class AppComponent implements OnInit{
     this.main_interval = timer(0, this.how_long).pipe(take(this.words.length - this.global_word_index))
       .subscribe((res: any) => {
 
-      this.current_word = this.words[this.global_word_index]
+      this.current_word = this.words[this.global_word_index].origin_word
+      this.word_to_translate = this.words[this.global_word_index].word_to_translate
       this.global_word_index += 1
 
       console.log('response from main_interval: ', res)
@@ -71,16 +76,18 @@ export class AppComponent implements OnInit{
   }
 
   modelChangeFn(value: any) {
-    if (value === this.current_word) {
+    if (value === this.word_to_translate) {
       this.points += 1
-      this.word_to_translate = ''
+      this.passed_words.push({origin_word : this.current_word,
+        translated_word: this.user_input,
+        origin_time: 2000,
+        time_left: this.cycle_time_left})
+      this.user_input = '';
       this.stopIntervals()
       this.startEverything()
     }
-  }
 
-  cleanx() {
-    this.word_to_translate = ''
+
   }
 
 }

@@ -1,0 +1,20 @@
+<div class="bl-container">
+
+  <div class="bl-word-panel">
+    <app-summary></app-summary>
+  </div>
+  <div class="bl-word-panel">
+    <input class="bl-input" />
+    <div class="bl-chips-container">
+      <ng-container *ngFor="let elem of added_words">
+        <div class="bl-single-chips">{{ elem }}</div>
+      </ng-container>
+
+      <input [(ngModel)]="word_to_add" style="background: none;border:none" (keyup.enter)="addWord(word_to_add)"/>
+
+
+    </div>
+    <button (click)="addWords()">add words</button>
+  </div>
+</div>
+

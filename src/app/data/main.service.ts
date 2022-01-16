@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {map} from "rxjs/operators";
 
 @Injectable({
@@ -16,3 +16,21 @@ export class MainService {
 
   }
 }
+
+@Injectable({providedIn: 'root'})
+export class SubjectWordsService {
+  private subject = new Subject<any>();
+
+  sendWords(data: any) {
+    this.subject.next(data);
+  }
+
+  clearWords() {
+    this.subject.next([]);
+  }
+
+  getWords() {
+    return this.subject
+  }
+}
+

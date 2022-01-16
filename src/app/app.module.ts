@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {SharedModule} from "./shared/shared.module";
+import { AddwordsComponent } from './game/addwords/addwords.component';
+import { GameComponent } from './game/game/game.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddwordsComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,

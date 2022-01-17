@@ -26,7 +26,7 @@ export class GameComponent implements OnInit{
   title: string = '';
   time: any;
   time_interval : number = 100
-  bart : number = 0;
+  bart : number = 100;
 
   constructor(private service: MainService) {
   }
@@ -60,19 +60,19 @@ export class GameComponent implements OnInit{
       console.log('nie ma juz slowek')
 
     }
-
   }
 
   // this function runs Small Interval - it means interval for every word: it's counting time inner single word
   smallInterval(timer: Observable<any>) {
+    this.bart = 100
     this.cycle_time_left = this.time
     this.small_interval = interval(this.time_interval)
       .pipe(takeUntil(timer))
       .pipe(finalize(()=>this.bigInterval()))
       .subscribe(val => {
-      this.bart += 1
-      this.cycle_time_left -= this.time_interval
-      console.log(this.cycle_time_left)
+        this.bart -= (100 / (this.time/100))
+        this.cycle_time_left -= this.time_interval
+        console.log(this.cycle_time_left/100)
 
 
     });

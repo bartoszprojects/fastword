@@ -8,12 +8,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {SharedModule} from "./shared/shared.module";
 import { AddwordsComponent } from './game/addwords/addwords.component';
 import { GameComponent } from './game/game/game.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddwordsComponent,
-    GameComponent
+    GameComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

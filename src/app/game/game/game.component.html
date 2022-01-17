@@ -6,7 +6,11 @@
     <div class="bl-word-panel-label bl-display-flex bl-display-flex-jcc">
       <p class="bl-text-font-size-big">{{ current_word }}</p>
     </div>
+    <div class="bl-progress-bar"
+         [ngStyle]="{'width': progress_bar + '%'}" style="background: green"></div>
     <div class="bl-word-panel-word bl-display-flex bl-display-flex-jcc">
+
+
       <input class="bl-input bl-text-font-size-big bl-text-align-center bl-width-100" placeholder="{{word_to_translate}}"
              [(ngModel)]="user_input" (ngModelChange)="modelChangeFn($event)">
     </div>
@@ -45,3 +49,6 @@
   </div>
 
 </div>
+
+
+<button (click)="lalax()">lalax</button>

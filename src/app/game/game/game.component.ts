@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MainService} from "../../data/main.service";
 import {interval} from "rxjs";
 import {timer} from "rxjs";
-import {finalize, take, takeUntil} from "rxjs/operators";
+import {delay, finalize, take, takeUntil, tap} from "rxjs/operators";
 import {Observable} from "rxjs";
 import * as moment from "moment";
 
@@ -24,9 +24,12 @@ export class GameComponent implements OnInit{
   global_word_index: number = 0;
   passed_words : Array<any> = []
   title: string = '';
-  time: any;
+  time: number = 0;
   time_interval : number = 100
-  bart : number = 100;
+  bart : number  = 0;
+
+  progress_bar : number = 0;
+  is_progress_bar : boolean = false;
 
   constructor(private service: MainService) {
   }
@@ -54,7 +57,17 @@ export class GameComponent implements OnInit{
       this.global_word_index += 1
       let timer$ = timer(this.time+1)
       console.log('this.time: ', this.time)
-      this.smallInterval(timer$)
+
+      interval(100)
+        .pipe(take(11))
+        .pipe(finalize(()=>this.smallInterval(timer$)))
+        .subscribe(res => {
+          this.progress_bar = res * 10
+          this.is_progress_bar = true
+
+
+      })
+
     }
     catch(e) {
       console.log('nie ma juz slowek')
@@ -66,13 +79,25 @@ export class GameComponent implements OnInit{
   smallInterval(timer: Observable<any>) {
     this.bart = 100
     this.cycle_time_left = this.time
+
     this.small_interval = interval(this.time_interval)
+      .pipe(tap(()=> this.is_progress_bar = false))
       .pipe(takeUntil(timer))
       .pipe(finalize(()=>this.bigInterval()))
       .subscribe(val => {
-        this.bart -= (100 / (this.time/100))
+        let abc = (100 / (this.time / this.time_interval)).toFixed(0)
+        if (this.bart < 15){
+          this.bart = 0
+        }
+        else {
+          this.bart -= Number(abc)
+        }
+
+        console.log('abc', this.bart)
+
         this.cycle_time_left -= this.time_interval
         console.log(this.cycle_time_left/100)
+
 
 
     });
@@ -97,6 +122,13 @@ export class GameComponent implements OnInit{
     }
 
 
+  }
+
+
+  lalax() {
+    interval(100).pipe(take(10)).subscribe(res => {
+      console.log(res)
+    })
   }
 
 }

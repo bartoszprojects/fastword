@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MainService} from "../../data/main.service";
 import {interval} from "rxjs";
 import {timer} from "rxjs";
@@ -12,6 +12,8 @@ import * as moment from "moment";
   styleUrls: ['./game.component.sass']
 })
 export class GameComponent implements OnInit{
+  @ViewChild('value_input', {static: true}) value_input: any;
+
   main_interval : any;
   small_interval: any;
   how_long: number = 1000;
@@ -26,15 +28,17 @@ export class GameComponent implements OnInit{
   title: string = '';
   time: number = 0;
   time_interval : number = 100
-  bart : number  = 0;
+  temp_numb : number  = 0;
 
   progress_bar : number = 0;
   is_progress_bar : boolean = false;
+  answer_color: boolean = false;
 
   constructor(private service: MainService) {
   }
 
   ngOnInit(): void {
+    this.value_input.nativeElement.focus()
     this.service.getDataFromJsonFile().subscribe(res => {
       this.words = res
       console.log('a',this.words)
@@ -44,13 +48,15 @@ export class GameComponent implements OnInit{
   }
 
   startEverything() {
+
     this.bigInterval()
   }
 
   // this function runs Big Interval - it means interval for list of words. Every cycle is single word
   bigInterval() {
-
+    this.user_input = '';
     try {
+      this.is_progress_bar = true
       this.current_word = this.words[this.global_word_index].origin_word
       this.word_to_translate = this.words[this.global_word_index].word_to_translate
       this.time = this.words[this.global_word_index].time
@@ -63,11 +69,8 @@ export class GameComponent implements OnInit{
         .pipe(finalize(()=>this.smallInterval(timer$)))
         .subscribe(res => {
           this.progress_bar = res * 10
-          this.is_progress_bar = true
-
 
       })
-
     }
     catch(e) {
       console.log('nie ma juz slowek')
@@ -77,7 +80,7 @@ export class GameComponent implements OnInit{
 
   // this function runs Small Interval - it means interval for every word: it's counting time inner single word
   smallInterval(timer: Observable<any>) {
-    this.bart = 100
+    this.temp_numb = 100
     this.cycle_time_left = this.time
 
     this.small_interval = interval(this.time_interval)
@@ -85,18 +88,19 @@ export class GameComponent implements OnInit{
       .pipe(takeUntil(timer))
       .pipe(finalize(()=>this.bigInterval()))
       .subscribe(val => {
-        let abc = (100 / (this.time / this.time_interval)).toFixed(0)
-        if (this.bart < 15){
-          this.bart = 0
-        }
-        else {
-          this.bart -= Number(abc)
+        this.value_input.nativeElement.focus()
+        let tempNumb = (100 / (this.time / this.time_interval)).toFixed(0)
+        this.temp_numb -= Number(tempNumb)
+        if (this.temp_numb < Number(tempNumb)) {
+          this.temp_numb = 0
         }
 
-        console.log('abc', this.bart)
-
+        console.log('this.bart', this.temp_numb)
+        console.log('abc: ', tempNumb)
+        console.log('--------------')
         this.cycle_time_left -= this.time_interval
-        console.log(this.cycle_time_left/100)
+
+
 
 
 
@@ -111,7 +115,12 @@ export class GameComponent implements OnInit{
 
   modelChangeFn(value: any) {
     if (value === this.word_to_translate) {
+      this.temp_numb = 0
       this.points += 1
+      this.answer_color = true
+      timer(100).subscribe(res=> {
+        this.answer_color = false
+      })
       this.passed_words.push({origin_word : this.current_word,
         translated_word: this.user_input,
         origin_time: 2000,

@@ -37,8 +37,8 @@ export class GameComponent implements OnInit{
   constructor(private service: MainService) {
   }
 
+
   ngOnInit(): void {
-    this.value_input.nativeElement.focus()
     this.service.getDataFromJsonFile().subscribe(res => {
       this.words = res
       console.log('a',this.words)
@@ -89,7 +89,7 @@ export class GameComponent implements OnInit{
       .pipe(finalize(()=>this.bigInterval()))
       .subscribe(val => {
         this.value_input.nativeElement.focus()
-        let tempNumb = (100 / (this.time / this.time_interval)).toFixed(0)
+        let tempNumb = (100 / (this.time / this.time_interval))
         this.temp_numb -= Number(tempNumb)
         if (this.temp_numb < Number(tempNumb)) {
           this.temp_numb = 0
@@ -99,10 +99,6 @@ export class GameComponent implements OnInit{
         console.log('abc: ', tempNumb)
         console.log('--------------')
         this.cycle_time_left -= this.time_interval
-
-
-
-
 
     });
   }
@@ -129,8 +125,6 @@ export class GameComponent implements OnInit{
       this.small_interval.unsubscribe()
 
     }
-
-
   }
 
 

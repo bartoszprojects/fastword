@@ -3,18 +3,21 @@
   <div class="bl-word-panel">
     <app-summary></app-summary>
   </div>
-  <div class="bl-word-panel">
-    <input class="bl-input" />
+  <div class="bl-word-panel bl-display-flex">
+    <input #value_input [(ngModel)]="origin_word_to_add" class="bl-input" placeholder="english word"/>
     <div class="bl-chips-container">
       <ng-container *ngFor="let elem of added_words">
         <div class="bl-single-chips">{{ elem }}</div>
       </ng-container>
 
-      <input [(ngModel)]="word_to_add" style="background: none;border:none" (keyup.enter)="addWord(word_to_add)"/>
+      <input [(ngModel)]="translated_word_to_add" style="background: none;border:none" (keyup.,)="addWord(translated_word_to_add)"
+      (keyup.enter)="addWords()" placeholder="your translations"/>
 
 
     </div>
-    <button (click)="addWords()">add words</button>
+
   </div>
+  <button (click)="saveToDB()">save to DB</button>
+
 </div>
 

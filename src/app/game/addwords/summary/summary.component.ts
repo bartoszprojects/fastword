@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SubjectWordsService} from "../../../data/main.service";
+import {SubjectAddWordsService, SubjectWordsService} from "../../../data/main.service";
 
 @Component({
   selector: 'app-summary',
@@ -8,11 +8,12 @@ import {SubjectWordsService} from "../../../data/main.service";
 })
 export class SummaryComponent implements OnInit {
   words : [] = [];
-  constructor(private service: SubjectWordsService) { }
+  constructor(private service: SubjectAddWordsService) { }
 
   ngOnInit(): void {
     this.service.getWords().subscribe(res => {
       this.words = res
+      this.service.completeSubject()
     })
   }
 

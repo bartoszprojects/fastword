@@ -15,6 +15,10 @@ export class MainService {
     return this.http.get<any>(this.data_url);
 
   }
+
+  saveDataToJsonFile() {
+    return this.http.post('./assets/data/saved.json', {'a': 15})
+  }
 }
 
 @Injectable({providedIn: 'root'})
@@ -33,4 +37,28 @@ export class SubjectWordsService {
     return this.subject
   }
 }
+
+
+@Injectable({providedIn: 'root'})
+export class SubjectAddWordsService {
+  private subject = new Subject<any>();
+
+  sendWords(data: any) {
+    this.subject.next(data);
+  }
+
+  completeSubject() {
+    this.subject.complete()
+  }
+
+  clearWords() {
+    this.subject.next([]);
+  }
+
+  getWords() {
+    return this.subject;
+
+  }
+}
+
 

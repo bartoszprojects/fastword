@@ -42,9 +42,8 @@ export class GameComponent implements OnInit{
     this.service.getDataFromJsonFile().subscribe(res => {
       this.words = res
       console.log('a',this.words)
+      console.log(localStorage.getItem('words'))
     })
-
-
   }
 
   startEverything() {

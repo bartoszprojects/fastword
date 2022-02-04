@@ -1,15 +1,19 @@
-<table>
+<table class="bl-summary-table">
   <thead>
   <tr>
     <th>Origin Word</th>
     <th>Translated Word</th>
-    <th>Origin Time</th>
-    <th>Time Left</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let elem of words">
-    <td>{{ elem }}</td>
+    <td><a class="bl-summary-table-text">{{ elem['origin_word'] }}</a></td>
+    <td>
+      <a *ngFor="let subelem of elem['words_to_translate']" class="bl-summary-table-text">{{ subelem }}</a>
+    </td>
   </tr>
+
   </tbody>
 </table>
+
+

@@ -2,11 +2,5 @@
   {"origin_word":  "dog", "word_to_translate":  "pies", "time": 11500, "other":  "other"},
   {"origin_word":  "cat", "word_to_translate":  "kot", "time": 4000, "other":  "other"},
   {"origin_word":  "sea", "word_to_translate":  "morze", "time": 4000, "other":  "other"},
-  {"origin_word":  "forest", "word_to_translate":  "las", "time": 4000, "other":  "other"},
-  {"origin_word":  "home", "word_to_translate":  "dom", "time": 4000, "other":  "other"},
-  {"origin_word":  "red", "word_to_translate":  "czerwony", "time": 4000, "other":  "other"},
-  {"origin_word":  "green", "word_to_translate":  "zielony", "time": 4000, "other":  "other"},
-  {"origin_word":  "black", "word_to_translate":  "czarny", "time": 4000, "other":  "other"},
-  {"origin_word":  "window", "word_to_translate":  "okno", "time": 4000, "other":  "other"},
-  {"origin_word":  "screen", "word_to_translate":  "ekran", "time": 4000, "other":  "other"}
+
 ]

@@ -107,7 +107,8 @@ export class GameComponent implements OnInit{
     console.log('it takes: ', moment.duration(this.cycle_time_left).asSeconds())
 
   }
-
+  // this function check every change in MAIN GAME INPUT, it means that if you write 'd' , 'do', 'dog' and 'dog' is
+  // equal to 'word_to_translate' then it adds point and change word to next
   modelChangeFn(value: any) {
     if (this.word_to_translate.includes(value)) {
       this.temp_numb = 0

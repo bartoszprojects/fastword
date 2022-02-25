@@ -13,10 +13,8 @@ import * as moment from "moment";
 })
 export class GameComponent implements OnInit{
   @ViewChild('value_input', {static: true}) value_input: any;
-  name1 = 'murex!!!piwko!!'
-  main_interval : any;
+
   small_interval: any;
-  how_long: number = 1000;
   cycle_time_left: any;
   current_word : string = '';
   word_to_translate: string = '';
@@ -33,6 +31,8 @@ export class GameComponent implements OnInit{
   progress_bar : number = 0;
   is_progress_bar : boolean = false;
   answer_color: boolean = false;
+
+  game_mode : string = 'normal'
 
   constructor(private service: MainService) {
   }
@@ -56,8 +56,16 @@ export class GameComponent implements OnInit{
     this.user_input = '';
     try {
       this.is_progress_bar = true
-      this.current_word = this.words[this.global_word_index].origin_word
-      this.word_to_translate = this.words[this.global_word_index].word_to_translate
+
+      if (this.game_mode === 'normal'){
+        this.current_word = this.words[this.global_word_index].first_word
+        this.word_to_translate = this.words[this.global_word_index].second_word
+      }
+      if (this.game_mode === 'reverse') {
+        this.current_word = this.words[this.global_word_index].second_word
+        this.word_to_translate = this.words[this.global_word_index].first_word
+      }
+
       this.time = this.words[this.global_word_index].time
       this.global_word_index += 1
       let timer$ = timer(this.time+1)

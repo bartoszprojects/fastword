@@ -13,7 +13,7 @@ import * as moment from "moment";
 })
 export class GameComponent implements OnInit{
   @ViewChild('value_input', {static: true}) value_input: any;
-
+  name1 = 'murex!!!piwko!!'
   main_interval : any;
   small_interval: any;
   how_long: number = 1000;

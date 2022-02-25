@@ -1,10 +1,8 @@
 [
 
+  {"origin_word":  "convince", "word_to_translate":  "przekonać", "time": 3000, "other":  "other"},
+  {"origin_word":  "lie", "word_to_translate":  "kłamać", "time": 3000, "other":  "other"},
   {"origin_word":  "dog", "word_to_translate":  "pies", "time": 3000, "other":  "other"},
   {"origin_word":  "cat", "word_to_translate":  "kot", "time": 3000, "other":  "other"},
-  {"origin_word":  "sea", "word_to_translate":  "morze", "time": 1000, "other":  "other"},
-  {"origin_word":  "forest", "word_to_translate":  "las", "time": 2000, "other":  "other"},
-  {"origin_word":  "home", "word_to_translate":  "dom", "time": 1000, "other":  "other"},
-  {"origin_word":  "red", "word_to_translate":  "czerwony", "time": 1000, "other":  "other"}
-
+  {"origin_word":  "home", "word_to_translate":  "dom", "time": 3000, "other":  "other"}
 ]

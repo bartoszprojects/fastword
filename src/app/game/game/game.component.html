@@ -12,7 +12,7 @@
 
 
       <input #value_input class="bl-input bl-text-font-size-big bl-text-align-center bl-width-100"
-             placeholder="{{is_progress_bar === true ? null : word_to_translate}}"
+
              [(ngModel)]="user_input" (ngModelChange)="modelChangeFn($event)"
              [attr.disabled] = "is_progress_bar === true ? 'disabled' : null">
 
@@ -28,7 +28,7 @@
   </div>
   <button (click)="startEverything()">start everything!</button>
   <button (click)="stopIntervals()">stop small interval</button>
-
+  <p>tutaj murex pije piwo: {{ words | json }}</p>
   <div class="bl-word-panel bl-flying-box">
 
     <table>
@@ -57,3 +57,6 @@
 
 
 <button (click)="lalax()">lalax</button>
+
+
+

@@ -1,6 +1,6 @@
+
 [
   {"origin_word":  "worker", "word_to_translate":  ["pracownik", "robotnik"], "time": 3000, "other":  "other"},
   {"origin_word":  "board", "word_to_translate":  ["tablica", "deska"], "time": 3000, "other":  "other"},
   {"origin_word":  "beyond", "word_to_translate":  ["poza", "ponad"], "time": 3000, "other":  "other"}
 ]
-

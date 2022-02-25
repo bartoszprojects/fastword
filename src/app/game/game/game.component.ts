@@ -109,7 +109,7 @@ export class GameComponent implements OnInit{
   }
 
   modelChangeFn(value: any) {
-    if (value === this.word_to_translate) {
+    if (this.word_to_translate.includes(value)) {
       this.temp_numb = 0
       this.points += 1
       this.answer_color = true
@@ -127,10 +127,6 @@ export class GameComponent implements OnInit{
   }
 
 
-  lalax() {
-    interval(100).pipe(take(10)).subscribe(res => {
-      console.log(res)
-    })
-  }
+
 
 }

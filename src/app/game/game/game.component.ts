@@ -128,6 +128,19 @@ export class GameComponent implements OnInit{
   }
 
 
+  regex(){
+    // space REGEX
+    let wordx = 'bye'
+    let pl = 'poza'
+    let userpl = 'po za'
+    // first we have to check if word_to_translate includes 'space' symbol
+    let pattern = new RegExp(/ /g);
+    // if we know whether there is a space symbol then we can ignore 'space' symbol
+    let result=pattern.test(userpl);
+    console.log(userpl.replace(/\s/g, ''));
 
+    console.log(result);
+
+  }
 
 }

@@ -1,0 +1,13 @@
+FROM python:latest
+
+WORKDIR /app
+
+COPY . /app
+
+RUN pip install -r requirements.txt
+RUN pip install psycopg2-binary
+
+CMD export FLASK_APP=app.py ; export FLASK_ENV=development ; flask run --host=0.0.0.0
+
+
+

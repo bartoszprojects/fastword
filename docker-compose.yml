@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  database:
+    build: ./database/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+  backend:
+    build: ./backend/
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend/app:/app
+  frontend:
+    build: ./frontend/
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./frontend/app:/app
+
+volumes:
+  flask_volume:
+    driver: local

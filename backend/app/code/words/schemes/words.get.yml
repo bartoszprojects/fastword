@@ -1,0 +1,20 @@
+Returning all FASTWORD words data
+In this example the specification is taken from external YAML file
+---
+definitions:
+  Words:
+    type: object
+    properties:
+      words_name:
+        type: array
+        items:
+          $ref: '#/definitions/Words'
+  Word:
+    type: string
+responses:
+  200:
+    description: A list of words
+    schema:
+      $ref: '#/definitions/Words'
+    examples:
+      rgb: ['red', 'green', 'blue']

@@ -9,6 +9,7 @@ services:
       - POSTGRES_DB=postgres
     ports:
       - "5432:5432"
+    container_name: 'fw-database'
   backend:
     build: ./backend/
     stdin_open: true # docker run -i
@@ -17,6 +18,8 @@ services:
       - "5000:5000"
     volumes:
       - ./backend/app:/app
+    container_name: 'fw-backend'
+
   frontend:
     build: ./frontend/
     stdin_open: true # docker run -i
@@ -25,6 +28,7 @@ services:
       - "4200:4200"
     volumes:
       - ./frontend/app:/app
+    container_name: 'fw-frontend'
 
 volumes:
   flask_volume:

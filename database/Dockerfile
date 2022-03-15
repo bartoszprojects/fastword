@@ -10,5 +10,4 @@ FROM postgres:latest
 # CREATE TABLE friends(friend_id INT NOT NULL,name VARCHAR (255) UNIQUE NOT NULL)
 # INSERT INTO public.friends(friend_id, name)VALUES(0, 'aga');
 # SELECT * FROM friends;
-
-
+# INSERT INTO words (word, translated_word) VALUES('cat', 'kot');

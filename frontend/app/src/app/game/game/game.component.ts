@@ -39,6 +39,7 @@ export class GameComponent implements OnInit{
 
 
   ngOnInit(): void {
+    this.service.getDataFromFlask().subscribe(res => console.log('malibu: ', res))
     this.service.getDataFromJsonFile().subscribe(res => {
       this.words = res
       console.log('a',this.words)

@@ -1,8 +1,8 @@
-VIEW POST WORDS MODEL
+VIEW POST Translations MODEL
 ---
 tags:
-  - Words
-summary: Add Word
+  - Translations
+summary: Add Translation
 produces:
   - application/json
 parameters:
@@ -12,9 +12,13 @@ parameters:
     schema:
       type: object
       properties:
-        word:
+        translated_word:
           type: string
-          description: Name of word
+          description: Name of translated_word
+        for_word:
+          type: string
+          description: ID of word
+
 responses:
   201:
     schema:

@@ -37,7 +37,6 @@ export class GameComponent implements OnInit{
   constructor(private service: MainService) {
   }
 
-
   ngOnInit(): void {
     this.service.getDataFromFlask().subscribe(res => console.log('malibu: ', res))
     this.service.getDataFromJsonFile().subscribe(res => {
@@ -127,8 +126,4 @@ export class GameComponent implements OnInit{
 
     }
   }
-
-
-
-
 }

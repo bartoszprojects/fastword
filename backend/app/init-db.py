@@ -6,8 +6,6 @@ def create_tables():
 def drop_tables():
     psql_db.drop_tables(TABLES, safe=True)
 
-def add_example_data():
-    Word.create(word="dog", translated_word="pies")
 
 
 def make_migrate():

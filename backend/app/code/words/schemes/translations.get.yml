@@ -1,8 +1,8 @@
 VIEW GET ALL WORDS MODEL
 ---
 tags:
-  - Words
-summary: Add Words
+  - Translations
+summary: Get Translation
 produces:
   - application/json
 definitions:

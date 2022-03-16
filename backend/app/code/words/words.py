@@ -7,21 +7,18 @@ from flask import jsonify, request
 @swag_from('./schemes/words.get.yml', methods=['GET'])
 @swag_from('./schemes/words.post.yml', methods=['POST'])
 def words():
-    # GET
+    # GET METHOD
     if request.method == 'GET':
-        response = {'words': [], 'foreign_key': []}
+        response = {'words': []}
         words = Word.select()
-        for author in words.dicts():
+        for elem in words.dicts():
             foreign_list = {"data": []}
-            query = TranslationList.select().where(TranslationList.for_word == author['id'])
-            for elem in query.dicts():
-                foreign_list['data'].append(elem)
-            response['words'].append(
-                {'id': author['id'],
-                'word_name': author['word_name'],
-                 'foreign_list': foreign_list})
+            query = TranslationList.select().where(TranslationList.for_word == elem['id'])
+            for subelem in query.dicts():
+                foreign_list['data'].append(subelem)
+            response['words'].append({'id': elem['id'],'word_name': elem['word_name'],'foreign_list': foreign_list})
         return jsonify(response)
-    # POST
+    # POST METHOD
     if request.method == 'POST':
         payload = request.get_json(force=True)
         Word.post_data(payload)
@@ -32,14 +29,14 @@ def words():
 @swag_from('./schemes/translations.get.yml', methods=['GET'])
 @swag_from('./schemes/translations.post.yml', methods=['POST'])
 def translations():
-    # GET
+    # GET METHOD
     if request.method == 'GET':
         response = {'translations': []}
         translations = TranslationList.select()
-        for author in translations.dicts():
-            response['translations'].append(author)
+        for elem in translations.dicts():
+            response['translations'].append(elem)
         return jsonify(response)
-    # POST
+    # POST METHOD
     if request.method == 'POST':
         payload = request.get_json(force=True)
         TranslationList.post_data(payload)

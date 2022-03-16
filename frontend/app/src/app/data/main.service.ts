@@ -19,9 +19,10 @@ export class MainService {
     return this.http.get("http://localhost:5000/words")
   }
 
-  saveDataToJsonFile() {
-    return this.http.post('./assets/data/saved.json', {'a': 15})
+  postDataToFlask() {
+
   }
+
 }
 
 @Injectable({providedIn: 'root'})

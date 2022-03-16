@@ -8,7 +8,7 @@ class Word(BaseModel):
 
     @staticmethod
     def post_data(data):
-        post_data = Word.create(word_name=data['word'])
+        post_data = Word.create(word_name=data['word_name'])
         return post_data
 
 class TranslationList(BaseModel):

@@ -18,7 +18,7 @@ export class MainService {
   }
 
   getDataFromFlask() {
-    return this.http.get("http://localhost:5000/words")
+    return this.http.get("http://localhost:5222/words")
   }
 
   postWordToFlask(data: any) {
@@ -32,7 +32,7 @@ export class MainService {
     //   {
     //     "word_name": "exampple"
     //   }
-    return this.http.post('http://localhost:5000/words', data, httpOptions);
+    return this.http.post('http://localhost:5222/words', data, httpOptions);
   }
 
   postTranslationsToFlask(data: any) {
@@ -48,7 +48,7 @@ export class MainService {
     //     "translated_word": "string"
     //   }
 
-    return this.http.post('http://localhost:5000/bulk_translations', data, httpOptions);
+    return this.http.post('http://localhost:5222/bulk_translations', data, httpOptions);
   }
 }
 

@@ -8,14 +8,14 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
     ports:
-      - "5432:5432"
+      - "5342:5432"
     container_name: 'fw-database'
   backend:
     build: ./backend/
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     ports:
-      - "5000:5000"
+      - "5222:5000"
     volumes:
       - ./backend/app:/app
     container_name: 'fw-backend'
@@ -25,7 +25,7 @@ services:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     ports:
-      - "4200:4200"
+      - "4222:4200"
     volumes:
       - ./frontend/app:/app
     container_name: 'fw-frontend'

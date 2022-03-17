@@ -29,19 +29,13 @@ export class SinglewordComponent implements OnInit {
   }
 
   addWords() {
-    if (this.added_words.length < 2) {
-      this.added_words_final.push({'origin_word' : this.origin_word_to_add, 'words_to_translate': [this.translated_word_to_add] })
-    }
-    else {
-      this.added_words_final.push({'origin_word' : this.origin_word_to_add, 'words_to_translate': this.added_words })
-    }
-
+    this.saveToDB()
+    this.added_words_final.push({'origin_word' : this.origin_word_to_add, 'words_to_translate': this.added_words })
     this.subjectService.sendWords(this.added_words_final);
     this.added_words = []
     this.origin_word_to_add = ''
     this.translated_word_to_add = ''
     this.value_input.nativeElement.focus()
-
   }
 
   saveToDB(){
@@ -57,7 +51,7 @@ export class SinglewordComponent implements OnInit {
 
       this.service.postTranslationsToFlask({"bulk" : final_dict}).subscribe((res : any) => {
         console.log('response from postTranslationsToFlask: ', res)
-        this.addWords()
+        this.data_for_backend = []
       })
     })
   }

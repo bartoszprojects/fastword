@@ -22,5 +22,3 @@ responses:
       $ref: '#/definitions/Words'
     examples:
       rgb: ['red', 'green', 'blue']
-
-

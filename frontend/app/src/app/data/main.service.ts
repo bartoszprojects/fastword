@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
 import {map} from "rxjs/operators";
 
@@ -9,20 +9,47 @@ import {map} from "rxjs/operators";
 export class MainService {
   private data_url = './assets/data/data.json';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getDataFromJsonFile(): Observable<any> {
     return this.http.get<any>(this.data_url);
 
   }
+
   getDataFromFlask() {
     return this.http.get("http://localhost:5000/words")
   }
 
-  postDataToFlask() {
-
+  postWordToFlask(data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }),
+    };
+    data =
+      {
+        "word_name": "tyskaa123"
+      }
+    return this.http.post('http://localhost:5000/words', data, httpOptions);
   }
 
+  postTranslationsToFlask(data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }),
+    };
+    data =
+      {
+        "for_word": 1,
+        "translated_word": "string"
+      }
+
+    return this.http.post('http://localhost:5000/translations', data, httpOptions);
+  }
 }
 
 @Injectable({providedIn: 'root'})

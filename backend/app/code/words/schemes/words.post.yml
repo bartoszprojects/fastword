@@ -12,7 +12,7 @@ parameters:
     schema:
       type: object
       properties:
-        word:
+        word_name:
           type: string
           description: Name of word
 responses:

@@ -126,4 +126,5 @@ export class GameComponent implements OnInit{
 
     }
   }
+
 }

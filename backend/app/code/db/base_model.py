@@ -6,7 +6,8 @@ psql_db = PostgresqlExtDatabase(
     user='postgres',
     password='postgres',
     port=5432,
-    host='fw-database')
+    host='fw-database'
+    )
 
 
 class BaseModel(Model):

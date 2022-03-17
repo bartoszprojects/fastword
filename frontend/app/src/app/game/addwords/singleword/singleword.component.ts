@@ -12,9 +12,10 @@ export class SinglewordComponent implements OnInit {
   added_words_final: Array<any> = [];
   origin_word_to_add : string = '';
   translated_word_to_add : string = '';
-  constructor(private service: SubjectAddWordsService, private jsonService: MainService) { }
+  constructor(private subjectService: SubjectAddWordsService, private service: MainService, private jsonService: MainService) { }
 
   ngOnInit(): void {
+
   }
 
   addWord(word: string) {
@@ -33,7 +34,7 @@ export class SinglewordComponent implements OnInit {
       this.added_words_final.push({'origin_word' : this.origin_word_to_add, 'words_to_translate': this.added_words })
     }
 
-    this.service.sendWords(this.added_words_final);
+    this.subjectService.sendWords(this.added_words_final);
     this.added_words = []
     this.origin_word_to_add = ''
     this.translated_word_to_add = ''
@@ -42,8 +43,10 @@ export class SinglewordComponent implements OnInit {
   }
 
   saveToDB(){
-    localStorage.setItem('words', JSON.stringify(this.added_words_final));
-
+    this.service.postWordToFlask({}).subscribe((res : any) => {
+      let id_of_added_record = res['id']
+      console.log('id: ', id_of_added_record)
+    })
   }
 
 }

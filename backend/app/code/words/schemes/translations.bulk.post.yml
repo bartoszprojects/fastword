@@ -12,12 +12,9 @@ parameters:
     schema:
       type: object
       properties:
-        translated_word:
-          type: string
-          description: Name of translated_word
-        for_word:
-          type: number
-          description: ID of word
+        bulk:
+          type: object
+          description: object
 
 responses:
   201:

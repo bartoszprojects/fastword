@@ -22,8 +22,7 @@ def words():
     if request.method == 'POST':
         payload = request.get_json(force=True)
         error = Word.validate(request.json['word_name'])
-        if error:
-            return jsonify({'error': error}), 400
+
         create_record = Word.post_data(payload)
         return jsonify({'payload': payload, 'id': create_record.id})
 

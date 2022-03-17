@@ -28,10 +28,10 @@ export class MainService {
         'Access-Control-Allow-Origin': '*',
       }),
     };
-    data =
-      {
-        "word_name": "tyskaa123"
-      }
+    // data =
+    //   {
+    //     "word_name": "exampple"
+    //   }
     return this.http.post('http://localhost:5000/words', data, httpOptions);
   }
 
@@ -42,13 +42,13 @@ export class MainService {
         'Access-Control-Allow-Origin': '*',
       }),
     };
-    data =
-      {
-        "for_word": 1,
-        "translated_word": "string"
-      }
+    // data =
+    //   {
+    //     "for_word": 1,
+    //     "translated_word": "string"
+    //   }
 
-    return this.http.post('http://localhost:5000/translations', data, httpOptions);
+    return this.http.post('http://localhost:5000/bulk_translations', data, httpOptions);
   }
 }
 

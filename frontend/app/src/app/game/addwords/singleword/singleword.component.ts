@@ -31,7 +31,6 @@ export class SinglewordComponent implements OnInit {
   addWords() {
     this.saveToDB()
     this.added_words_final.push({'origin_word' : this.origin_word_to_add, 'words_to_translate': this.added_words })
-    this.subjectService.sendWords(this.added_words_final);
     this.added_words = []
     this.origin_word_to_add = ''
     this.translated_word_to_add = ''
@@ -39,6 +38,8 @@ export class SinglewordComponent implements OnInit {
   }
 
   saveToDB(){
+    this.subjectService.sendWords(this.added_words_final)
+
     this.service.postWordToFlask({"word_name" : this.origin_word_to_add}).subscribe((res : any) => {
       let id_of_added_record = res['id']
       console.log('id: ', id_of_added_record)

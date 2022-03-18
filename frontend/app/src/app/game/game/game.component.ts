@@ -26,11 +26,12 @@ export class GameComponent implements OnInit{
   time: number = 0;
   time_interval : number = 100
   temp_numb : number  = 0;
+  show_hints : boolean = false;
 
   progress_bar : number = 0;
   is_progress_bar : boolean = false;
   answer_color: boolean = false;
-
+  wrong_answer_color: boolean = false;
   constructor(private service: MainService) {
   }
 
@@ -61,7 +62,7 @@ export class GameComponent implements OnInit{
         temp_list.push(this.words[this.global_word_index]['foreign_list']['data'][elem]['translated_word'])
       }
       this.words_to_translate = temp_list
-      this.time = 2000
+      this.time = 5000
       this.global_word_index += 1
       let timer$ = timer(this.time+1)
       console.log('this.time: ', this.time)
@@ -122,12 +123,15 @@ export class GameComponent implements OnInit{
       })
       this.passed_words.push({origin_word : this.current_word,
         translated_word: this.user_input,
-        origin_time: 2000,
+        origin_time: 5000,
         time_left: this.cycle_time_left})
       this.user_input = '';
       this.small_interval.unsubscribe()
-
     }
+
+  }
+  showOrHideHints() {
+    this.show_hints = !this.show_hints
   }
 
 }

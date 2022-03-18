@@ -2,7 +2,8 @@
   <div class="bl-word-panel">
 
   </div>
-  <div class="bl-word-panel" [ngStyle]="{'backgroundColor': answer_color === true ? '#648d64' : 'white' }">
+  <div class="bl-word-panel" [ngStyle]="{'backgroundColor': answer_color === true ? '#648d64' : 'white' }"
+       [ngStyle]="{'backgroundColor': wrong_answer_color === true ? 'red' : 'white' }">
     <div class="bl-word-panel-label bl-display-flex bl-display-flex-jcc">
       <p class="bl-text-font-size-big">{{ current_word }}</p>
     </div>
@@ -11,9 +12,10 @@
     <div class="bl-word-panel-word bl-display-flex bl-display-flex-jcc">
 
       <input #value_input class="bl-input bl-text-font-size-big bl-text-align-center bl-width-100"
-             [placeholder]="is_progress_bar === false ? words_to_translate : ''"
+             [placeholder]="show_hints === false ? words_to_translate : ''"
              [(ngModel)]="user_input" (ngModelChange)="modelChangeFn($event)"
-             [attr.disabled] = "is_progress_bar === true ? 'disabled' : null">
+             [attr.disabled] = "is_progress_bar === true ? 'disabled' : null"
+             (keyup.shift)="showOrHideHints()">
 
     </div>
     <div class="bl-progress-bar" [ngStyle]="{'width': temp_numb + '%'}"></div>
@@ -24,8 +26,8 @@
       <p style="transition: all 1s"> {{ cycle_time_left | numberToSeconds}} sec</p>
     </div>
   </div>
-  <button (click)="startEverything()">start everything!</button>
-  <button (click)="stopIntervals()">stop small interval</button>
+  <button class="bl-button" (click)="startEverything()">start everything!</button>
+  <button class="bl-button" (click)="stopIntervals()">stop small interval</button>
   <div class="bl-word-panel bl-flying-box">
 
     <table>

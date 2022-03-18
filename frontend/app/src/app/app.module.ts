@@ -11,6 +11,7 @@ import { GameComponent } from './game/game/game.component';
 import { HeaderComponent } from './layout/header/header.component';
 import {SinglewordComponent} from "./game/addwords/singleword/singleword.component";
 import { SummaryComponent } from './game/addwords/summary/summary.component';
+import { GameDashboardComponent } from './game/game-dashboard/game-dashboard.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SummaryComponent } from './game/addwords/summary/summary.component';
     GameComponent,
     HeaderComponent,
     SinglewordComponent,
-    SummaryComponent
+    SummaryComponent,
+    GameDashboardComponent
 
   ],
   imports: [

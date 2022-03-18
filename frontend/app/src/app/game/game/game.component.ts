@@ -13,13 +13,10 @@ import * as moment from "moment";
 })
 export class GameComponent implements OnInit{
   @ViewChild('value_input', {static: true}) value_input: any;
-  name1 = 'murex!!!piwko!!'
-  main_interval : any;
   small_interval: any;
-  how_long: number = 1000;
   cycle_time_left: any;
   current_word : string = '';
-  word_to_translate: string = '';
+  words_to_translate: Array<any> = [];
   user_input: string = '';
   words : Array<any> =  [];
   points : number = 0;
@@ -38,11 +35,13 @@ export class GameComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.service.getDataFromFlask().subscribe(res => console.log('malibu: ', res))
-    this.service.getDataFromJsonFile().subscribe(res => {
-      this.words = res
-      console.log('a',this.words)
-      console.log(localStorage.getItem('words'))
+    this.service.getDataFromFlask().subscribe((res :any ) =>  {
+      console.log('words: ', res)
+      console.log('word: ', res['words'][0]['word_name'])
+      console.log('word_to_Translate: ', res['words'][0]['foreign_list']['data'])
+      this.words = res['words']
+      console.log('ABCABC: ', this.words[1]['word_name'])
+      console.log('BCABCA: ', this.words[1]['foreign_list']['data'])
     })
   }
 
@@ -56,9 +55,13 @@ export class GameComponent implements OnInit{
     this.user_input = '';
     try {
       this.is_progress_bar = true
-      this.current_word = this.words[this.global_word_index].origin_word
-      this.word_to_translate = this.words[this.global_word_index].word_to_translate
-      this.time = this.words[this.global_word_index].time
+      this.current_word = this.words[this.global_word_index]['word_name']
+      let temp_list : Array<any> = []
+      for (let elem in this.words[this.global_word_index]['foreign_list']['data']) {
+        temp_list.push(this.words[this.global_word_index]['foreign_list']['data'][elem]['translated_word'])
+      }
+      this.words_to_translate = temp_list
+      this.time = 2000
       this.global_word_index += 1
       let timer$ = timer(this.time+1)
       console.log('this.time: ', this.time)
@@ -110,7 +113,7 @@ export class GameComponent implements OnInit{
   // this function check every change in MAIN GAME INPUT, it means that if you write 'd' , 'do', 'dog' and 'dog' is
   // equal to 'word_to_translate' then it adds point and change word to next
   modelChangeFn(value: any) {
-    if (this.word_to_translate.includes(value)) {
+    if (this.words_to_translate.includes(value)) {
       this.temp_numb = 0
       this.points += 1
       this.answer_color = true

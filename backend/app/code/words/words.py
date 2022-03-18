@@ -6,6 +6,7 @@ from flask import jsonify, request
 @mod_words.route('/words', methods=['GET', 'POST'])
 @swag_from('./schemes/words.get.yml', methods=['GET'])
 @swag_from('./schemes/words.post.yml', methods=['POST'])
+@swag_from('./schemes/words.delete.yml', methods=['DELETE'])
 def words():
     # GET METHOD
     if request.method == 'GET':
@@ -25,6 +26,9 @@ def words():
 
         create_record = Word.post_data(payload)
         return jsonify({'payload': payload, 'id': create_record.id})
+    # DELETE METHOD
+    if request.method == 'DELETE':
+        return {}
 
 
 @mod_words.route('/translations', methods=['GET', 'POST'])

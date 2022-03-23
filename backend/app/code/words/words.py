@@ -3,7 +3,7 @@ from flasgger import swag_from
 from ..db import *
 from flask import jsonify, request
 
-@mod_words.route('/words', methods=['GET', 'POST'])
+@mod_words.route('/words', methods=['GET', 'POST', 'DELETE'])
 @swag_from('./schemes/words.get.yml', methods=['GET'])
 @swag_from('./schemes/words.post.yml', methods=['POST'])
 @swag_from('./schemes/words.delete.yml', methods=['DELETE'])
@@ -28,9 +28,11 @@ def words():
         create_record = Word.post_data(payload)
         return jsonify({'payload': payload, 'id': create_record.id})
     # DELETE METHOD
-    if request.method == 'DELETE':
-        return {}
-
+    else:
+        payload2 = request.get_json(force=True)
+        delete = Word.get(Word.id == payload2['word_id'])
+        delete.delete_instance()
+        return jsonify({'bbbbbbbbbbbb': payload2['word_id']})
 
 @mod_words.route('/translations', methods=['GET', 'POST'])
 @swag_from('./schemes/translations.get.yml', methods=['GET'])

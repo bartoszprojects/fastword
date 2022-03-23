@@ -4,6 +4,7 @@
   <tr>
     <th>Origin Word</th>
     <th>Translated Word</th>
+    <th>Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -12,20 +13,24 @@
     <td>
       <a *ngFor="let subelem of elem['words_to_translate']" class="bl-summary-table-text">{{ subelem }}</a>
     </td>
+    <td>
+
+    </td>
   </tr>
   <ng-container *ngFor="let elem of words_from_backend?.words">
     <tr>
-      <td><a class="bl-summary-table-text">{{ elem.word_name }}</a></td>
+      <td><a class="bl-summary-table-text">{{ elem.id }}</a></td>
       <td>
         <a *ngFor="let subelem of elem.foreign_list.data"
            class="bl-summary-table-text">{{ subelem.translated_word }}</a>
       </td>
+      <td (click)="delete(elem.id)" style="text-align: center!important;">
+        <a class="bl-summary-table-text bl-button-hover bl-cursor-pointer">delete</a>
+      </td>
     </tr>
   </ng-container>
   </tbody>
-
 </table>
-
 
 
 

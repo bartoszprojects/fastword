@@ -21,5 +21,13 @@ export class SummaryComponent implements OnInit {
     })
   }
 
+  delete(id:number) {
+    this.service.deleteSingleWordFromFlask(id).subscribe(res=> {
+      this.service.getDataFromFlask().subscribe((res:any) => {
+        this.words_from_backend = res;
+      })
+    })
+
+  }
 }
 

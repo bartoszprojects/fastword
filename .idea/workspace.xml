@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18226163-7b83-4c42-839c-de5534eb6a72" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/app/code/words/_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/code/words/_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/code/words/schemes/words.post.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/code/words/schemes/words.post.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/code/words/words.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/code/words/words.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/singleword/singleword.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/singleword/singleword.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/singleword/singleword.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/singleword/singleword.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/data/main.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/data/main.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/summary/summary.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/summary/summary.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/summary/summary.component.sass" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/summary/summary.component.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/summary/summary.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/summary/summary.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/game-dashboard/game-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/game-dashboard/game-dashboard.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/game/game.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/game/game.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/game/game.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/game/game.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/styles.sass" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/styles.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +26,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="26kJrlIr7E10Fx0eG5KzLHz1Azy" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,7 +54,7 @@
       <workItem from="1647961855363" duration="31000" />
       <workItem from="1647963837984" duration="18000" />
       <workItem from="1647979138630" duration="460000" />
-      <workItem from="1647979641136" duration="9149000" />
+      <workItem from="1647979641136" duration="14713000" />
     </task>
     <servers />
   </component>
@@ -57,6 +62,14 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="360" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1648035463847">
+      <screen x="0" y="25" width="1792" height="994" />
+    </state>
+    <state x="360" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1792.994@0.25.1792.994" timestamp="1648035463847" />
+    <state x="609" y="328" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1648028347579">
+      <screen x="0" y="25" width="1792" height="994" />
+    </state>
+    <state x="609" y="328" key="#com.intellij.fileTypes.FileTypeChooser/0.25.1792.994@0.25.1792.994" timestamp="1648028347579" />
     <state x="561" y="244" width="670" height="676" key="search.everywhere.popup" timestamp="1647990668499">
       <screen x="0" y="25" width="1792" height="994" />
     </state>

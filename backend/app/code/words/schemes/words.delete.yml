@@ -1,8 +1,8 @@
-VIEW POST WORDS MODEL
+DELETE ID WORD
 ---
 tags:
   - Words
-summary: Add Word
+summary: Delete single Word
 produces:
   - application/json
 parameters:
@@ -12,17 +12,16 @@ parameters:
     schema:
       type: object
       properties:
-        word_name:
-          type: string
-          description: Name of word
-
+        word_id:
+          type: number
+          description: ID of word
 responses:
   201:
     schema:
       type: object
       properties:
         id:
-          type: string
+          type: number
           description: New Word I
   400:
     description: Bad request

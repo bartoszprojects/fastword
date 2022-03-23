@@ -1,0 +1,17 @@
+Delete Word ID
+---
+tags:
+  - Words
+summary: Usuń warstwę
+produces:
+  - application/json
+
+responses:
+  200:
+    description: Success
+  401:
+    description: Token is invalid / has expired
+  403:
+    description: Token required
+  404:
+    description: Not found

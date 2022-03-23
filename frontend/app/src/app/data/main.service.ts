@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpRequest} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
 import {map} from "rxjs/operators";
 
@@ -49,6 +49,12 @@ export class MainService {
     //   }
 
     return this.http.post('http://localhost:5222/bulk_translations', data, httpOptions);
+  }
+  deleteSingleWordFromFlask(id: number) {
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let examp1 = {"word_id": id}
+    return this.http.delete('http://localhost:5222/words', { body: examp1 });
   }
 }
 

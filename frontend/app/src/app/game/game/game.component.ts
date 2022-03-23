@@ -61,7 +61,7 @@ export class GameComponent implements OnInit{
         temp_list.push(this.words[this.global_word_index]['foreign_list']['data'][elem]['translated_word'])
       }
       this.words_to_translate = temp_list
-      this.time = 5000
+      this.time = temp_list[0].length * 600
       this.global_word_index += 1
       let timer$ = timer(this.time+1)
       console.log('this.time: ', this.time)

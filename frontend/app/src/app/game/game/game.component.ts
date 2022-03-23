@@ -32,6 +32,7 @@ export class GameComponent implements OnInit{
   is_progress_bar : boolean = false;
   answer_color: boolean = false;
   wrong_answer_color: boolean = false;
+  user_input_2: string = '';
   constructor(private service: MainService) {
   }
 
@@ -54,6 +55,7 @@ export class GameComponent implements OnInit{
   // this function runs Big Interval - it means interval for list of words. Every cycle is single word
   bigInterval() {
     this.user_input = '';
+
     try {
       this.is_progress_bar = true
       this.current_word = this.words[this.global_word_index]['word_name']
@@ -66,6 +68,7 @@ export class GameComponent implements OnInit{
       this.global_word_index += 1
       let timer$ = timer(this.time+1)
       console.log('this.time: ', this.time)
+      console.log('WORDS TO TRANSLATE: ', this.words_to_translate)
 
       interval(100)
         .pipe(take(11))
@@ -114,7 +117,13 @@ export class GameComponent implements OnInit{
   // this function check every change in MAIN GAME INPUT, it means that if you write 'd' , 'do', 'dog' and 'dog' is
   // equal to 'word_to_translate' then it adds point and change word to next
   modelChangeFn(value: any) {
+    console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+    console.log(value)
+    console.log(this.words_to_translate)
+    console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
     if (this.words_to_translate.includes(value)) {
+
       this.temp_numb = 0
       this.points += 1
       this.answer_color = true
@@ -125,13 +134,16 @@ export class GameComponent implements OnInit{
         translated_word: this.user_input,
         origin_time: 5000,
         time_left: this.cycle_time_left})
-      this.user_input = '';
       this.small_interval.unsubscribe()
     }
 
   }
   showOrHideHints() {
     this.show_hints = !this.show_hints
+  }
+
+  turbu() {
+    this.user_input = ''
   }
 
 }

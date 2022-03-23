@@ -26,8 +26,10 @@
       <p style="transition: all 1s"> {{ cycle_time_left | numberToSeconds}} sec</p>
     </div>
   </div>
+  <button (click)="turbu()">turbu</button>
   <button class="bl-button" (click)="startEverything()">start everything!</button>
   <button class="bl-button" (click)="stopIntervals()">stop small interval</button>
+  <input [(ngModel)]="user_input" (ngModelChange)="modelChangeFn($event)"/>
   <div class="bl-word-panel bl-flying-box">
 
     <table>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="18226163-7b83-4c42-839c-de5534eb6a72" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/backend/app/code/words/_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/code/words/_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/code/words/words.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/code/words/words.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/singleword/singleword.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/singleword/singleword.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/singleword/singleword.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/singleword/singleword.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/summary/summary.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/summary/summary.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/summary/summary.component.sass" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/summary/summary.component.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/summary/summary.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/addwords/summary/summary.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/game/game.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/game/game.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/game/game/game.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/game/game/game.component.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="26kJrlIr7E10Fx0eG5KzLHz1Azy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/app/node_modules/typescript/lib" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="18226163-7b83-4c42-839c-de5534eb6a72" name="Default Changelist" comment="" />
+      <created>1647961851834</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647961851834</updated>
+      <workItem from="1647961855363" duration="31000" />
+      <workItem from="1647963837984" duration="18000" />
+      <workItem from="1647979138630" duration="460000" />
+      <workItem from="1647979641136" duration="9149000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="561" y="244" width="670" height="676" key="search.everywhere.popup" timestamp="1647990668499">
+      <screen x="0" y="25" width="1792" height="994" />
+    </state>
+    <state x="561" y="244" width="670" height="676" key="search.everywhere.popup/0.25.1792.994@0.25.1792.994" timestamp="1647990668499" />
+  </component>
+</project>

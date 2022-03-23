@@ -14,7 +14,6 @@ export class SummaryComponent implements OnInit {
   ngOnInit(): void {
     this.subjectservice.getWords().subscribe(res => {
       this.words = res
-      this.subjectservice.completeSubject()
     })
 
     this.service.getDataFromFlask().subscribe((res:any) => {
@@ -23,3 +22,4 @@ export class SummaryComponent implements OnInit {
   }
 
 }
+

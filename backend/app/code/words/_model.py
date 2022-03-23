@@ -31,11 +31,18 @@ class TranslationList(BaseModel):
 
     @staticmethod
     def validate(data_to_check):
-        query = Word.select().where(Word.id == data_to_check)
-        if query.exists():
-            return False
-        else:
+        check_foreign_key = Word.select().where(Word.id == data_to_check['for_word'])
+        check_is_exist = TranslationList.select().where(TranslationList.translated_word == data_to_check['translated_word'])
+
+        if not check_foreign_key.exists():
             return 'There is no ForeignKey ID (Word) that you want to connect TranslationList record'
+        if check_is_exist.exists():
+            return 'Translation with this name exists in Database. You have to put other value'
+        if not data_to_check['translated_word']:
+            return 'Given value is empty. It must has at least one character'
+        return False
+
+
 
 
 class WordsCategory(BaseModel):

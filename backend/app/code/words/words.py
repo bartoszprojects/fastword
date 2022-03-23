@@ -23,7 +23,8 @@ def words():
     if request.method == 'POST':
         payload = request.get_json(force=True)
         error = Word.validate(request.json['word_name'])
-
+        if error:
+            return jsonify({'error': error}), 400
         create_record = Word.post_data(payload)
         return jsonify({'payload': payload, 'id': create_record.id})
     # DELETE METHOD
@@ -45,7 +46,7 @@ def translations():
     # POST METHOD
     if request.method == 'POST':
         payload = request.get_json(force=True)
-        error = TranslationList.validate(request.json['for_word'])
+        error = TranslationList.validate(payload)
         if error:
             return jsonify({'error': error}), 400
         TranslationList.post_data(payload)
@@ -68,6 +69,9 @@ def bulk_translations():
         payload = request.get_json(force=True)
         with psql_db.atomic():
             for data_dict in payload['bulk']:
+                # error = TranslationList.validate(data_dict)
+                # if error:
+                #     return jsonify({'error': error}), 400
                 TranslationList.create(**data_dict)
         return (request.json)
 

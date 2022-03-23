@@ -1,3 +1,4 @@
+
 <table class="bl-summary-table">
   <thead>
   <tr>
@@ -6,14 +7,29 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let elem of words">
+  <tr *ngFor="let elem of words" class="table-tr-new-words">
     <td><a class="bl-summary-table-text">{{ elem['origin_word'] }}</a></td>
     <td>
       <a *ngFor="let subelem of elem['words_to_translate']" class="bl-summary-table-text">{{ subelem }}</a>
     </td>
   </tr>
-{{ words_from_backend | json }}
+  <ng-container *ngFor="let elem of words_from_backend?.words">
+    <tr>
+      <td><a class="bl-summary-table-text">{{ elem.word_name }}</a></td>
+      <td>
+        <a *ngFor="let subelem of elem.foreign_list.data"
+           class="bl-summary-table-text">{{ subelem.translated_word }}</a>
+      </td>
+    </tr>
+  </ng-container>
   </tbody>
+
 </table>
+
+
+
+
+
+
 
 
